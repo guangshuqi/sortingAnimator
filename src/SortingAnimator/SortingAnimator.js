@@ -84,8 +84,8 @@ export default function SortingAnimator(){
             
         </div>
         <div className="button-container">
-            <button onClick={()=>runAnimation(getMergeSortSequence)}>Merge Sort</button>
-            <button onClick={()=>runAnimation(getBubbleSortSequence)}>Bubble Sort</button>
+            <button className = 'button' onClick={()=>runAnimation(getMergeSortSequence)}>Merge Sort</button>
+            <button className = 'button' onClick={()=>runAnimation(getBubbleSortSequence)}>Bubble Sort</button>
         </div>
        </div>
         

@@ -1,11 +1,26 @@
+.main-container{
+  display: flex;
+  flex-direction: column;
+  top: 100px;
+  left:30%;
+  position: absolute  
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  
+}
 .array-container {
-    position: absolute;
-    left: 800px;
-    top: 100px;
+
+    height: 500px;
+    min-height: 500px;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: flex-end;
   }
   
   .array-bar {
-    width: 10px;
-    display: inline-block;
-    margin: 0 1px;
+    width: 2em;
+    margin: 0 2px;
   }

@@ -3,10 +3,10 @@ import './SortingAnimator.css'
 import getMergeSortSequence from './SortingAlgorithm/MergeSort'
 import getBubbleSortSequence from './SortingAlgorithm/BubbleSort'
 
-const ARRAY_LEN = 20
+const ARRAY_LEN = 40
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'turquoise';
-const ANIMATION_SPEED_MS = 100
+const ANIMATION_SPEED_MS = 10
 // This is the color of array bars that are being compared throughout the animations.
 const SECONDARY_COLOR = 'red';
 export default function SortingAnimator(){

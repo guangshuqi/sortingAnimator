@@ -69,6 +69,7 @@ export default function SortingAnimator(){
 
     return (
         <div className="main-container">
+        <h1>Sorting Animator</h1>
             <div className="array-container">
             {array.map((value, idx)=>(
                 <div 

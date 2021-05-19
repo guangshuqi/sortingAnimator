@@ -1,19 +1,21 @@
 export default function getQuickSortSequence(unsortedArray, offset, sequences){
 
-    if (unsortedArray.length <= 1){
-        if (unsortedArray.length==1){
+    const auxArray = [...unsortedArray]
+    
+    if (auxArray.length <= 1){
+        if (auxArray.length==1){
             sequences.push({
                 type: 'colorChange',
                 indices: [offset],
                 color: 'green'
             })
         }
-        return [...unsortedArray]
+        return [...auxArray]
     }
-    let pivot = unsortedArray[0]
+    let pivot = auxArray[0]
 
     let pivotIdx = 0 
-    for (let i = 1; i< unsortedArray.length; i++){
+    for (let i = 1; i< auxArray.length; i++){
         sequences.push(
             {
                 type: 'colorChange',
@@ -27,31 +29,31 @@ export default function getQuickSortSequence(unsortedArray, offset, sequences){
             }
         )
         
-        if (unsortedArray[i]<pivot){
+        if (auxArray[i]<pivot){
             if (i == pivotIdx+1){
                 sequences.push(
                     {
                         type: "heightChange",
                         indices: [pivotIdx+offset, pivotIdx+offset+1],
-                        newHeights: [unsortedArray[pivotIdx+1], pivot]
+                        newHeights: [auxArray[pivotIdx+1], pivot]
                     }
                 ) 
-                unsortedArray[pivotIdx] =  unsortedArray[pivotIdx+1]
-                unsortedArray[pivotIdx+1] = pivot
+                auxArray[pivotIdx] =  auxArray[pivotIdx+1]
+                auxArray[pivotIdx+1] = pivot
             }
             else{
-                let temp = unsortedArray[pivotIdx+1]
+                let temp = auxArray[pivotIdx+1]
                 sequences.push(
                     {
                         type: "heightChange",
                         indices: [pivotIdx+offset, pivotIdx+offset+1, i+offset],
-                        newHeights: [unsortedArray[i], pivot, temp]
+                        newHeights: [auxArray[i], pivot, temp]
                     }
                 )
                 
-                unsortedArray[pivotIdx+1] = pivot
-                unsortedArray[pivotIdx] = unsortedArray[i]
-                unsortedArray[i]=temp
+                auxArray[pivotIdx+1] = pivot
+                auxArray[pivotIdx] = auxArray[i]
+                auxArray[i]=temp
             }
             
             pivotIdx++
@@ -63,5 +65,5 @@ export default function getQuickSortSequence(unsortedArray, offset, sequences){
         indices: [pivotIdx+offset],
         color: 'green'
     })
-    return [...getQuickSortSequence(unsortedArray.slice(0,pivotIdx),offset,sequences), pivot, ...getQuickSortSequence(unsortedArray.slice(pivotIdx+1,unsortedArray.length),offset+pivotIdx+1, sequences)]
+    return [...getQuickSortSequence(auxArray.slice(0,pivotIdx),offset,sequences), pivot, ...getQuickSortSequence(auxArray.slice(pivotIdx+1,auxArray.length),offset+pivotIdx+1, sequences)]
 }

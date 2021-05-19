@@ -1,9 +1,11 @@
 .main-container{
   display: flex;
   flex-direction: column;
-  top: 100px;
+  /* top: 100px;
   left:30%;
-  position: absolute  
+  position: absolute   */
+  margin: auto;
+  width: 50%;
 }
 
 .button-container {

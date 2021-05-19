@@ -2,7 +2,7 @@ import React from 'react'
 import './SortingAnimator.css'
 import getMergeSortSequence from './SortingAlgorithm/MergeSort'
 import getBubbleSortSequence from './SortingAlgorithm/BubbleSort'
-
+import getQuickSortSequence from './SortingAlgorithm/QuickSort'
 const ARRAY_LEN = 40
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'turquoise';
@@ -23,13 +23,19 @@ export default function SortingAnimator(){
     function runAnimation(getSortSequence){
         const sequences = []
         const sortedArray = getSortSequence(array,0, sequences)
-        // console.log(sortedArray)
+        console.log(sortedArray)
         console.log(sequences)
         for (let i=0; i < sequences.length;i++){
             let sequence = sequences[i]
             if(sequence['type']=='colorChange'){
                 const [idx1, idx2] = sequence['indices']
-                setTimeout(()=>{setArrayColorState([idx1,idx2])}, i*ANIMATION_SPEED_MS)   
+                if (sequence.hasOwnProperty('color')){
+                    setTimeout(()=>{setArrayColorState([idx1,idx2], sequence['color'])}, i*ANIMATION_SPEED_MS) 
+                }
+                else{
+                    setTimeout(()=>{setArrayColorState([idx1,idx2])}, i*ANIMATION_SPEED_MS)   
+                }
+                
                 
             }else{
                 
@@ -51,20 +57,31 @@ export default function SortingAnimator(){
             return newArray
         })
     }
-    function setArrayColorState(indices){
+    function setArrayColorState(indices, color = null){
 
-        
-        setArrayColor(oldArray => {
-            const newArray=[...oldArray]
-            indices.forEach(idx=>{
-                if (newArray[idx] == PRIMARY_COLOR){
-                    newArray[idx] = SECONDARY_COLOR
-                }else{
-                    newArray[idx] = PRIMARY_COLOR
-                }
+        if (color){
+            setArrayColor(oldArray => {
+                const newArray=[...oldArray]
+                indices.forEach(idx=>{
+                    newArray[idx] = color
+                })
+                return newArray
+        })}
+        else{
+            setArrayColor(oldArray => {
+                const newArray=[...oldArray]
+                indices.forEach(idx=>{
+                    if (newArray[idx] == PRIMARY_COLOR){
+                        newArray[idx] = SECONDARY_COLOR
+                    }else{
+                        newArray[idx] = PRIMARY_COLOR
+                    }
+                })
+                return newArray
+                
             })
-            return newArray
-        })
+        }
+        
     }
 
     return (
@@ -86,6 +103,7 @@ export default function SortingAnimator(){
         <div className="button-container">
             <button className = 'button' onClick={()=>runAnimation(getMergeSortSequence)}>Merge Sort</button>
             <button className = 'button' onClick={()=>runAnimation(getBubbleSortSequence)}>Bubble Sort</button>
+            <button className = 'button' onClick={()=>runAnimation(getQuickSortSequence)}>Quick Sort</button>
         </div>
        </div>
         

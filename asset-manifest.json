@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/sortingAnimator/static/css/main.fa0b8aae.chunk.css",
-    "main.js": "/sortingAnimator/static/js/main.fc7c0e38.chunk.js",
-    "main.js.map": "/sortingAnimator/static/js/main.fc7c0e38.chunk.js.map",
+    "main.js": "/sortingAnimator/static/js/main.e3e4c351.chunk.js",
+    "main.js.map": "/sortingAnimator/static/js/main.e3e4c351.chunk.js.map",
     "runtime-main.js": "/sortingAnimator/static/js/runtime-main.3c28eb94.js",
     "runtime-main.js.map": "/sortingAnimator/static/js/runtime-main.3c28eb94.js.map",
-    "static/js/2.e01b927e.chunk.js": "/sortingAnimator/static/js/2.e01b927e.chunk.js",
-    "static/js/2.e01b927e.chunk.js.map": "/sortingAnimator/static/js/2.e01b927e.chunk.js.map",
+    "static/js/2.5e0dfc7b.chunk.js": "/sortingAnimator/static/js/2.5e0dfc7b.chunk.js",
+    "static/js/2.5e0dfc7b.chunk.js.map": "/sortingAnimator/static/js/2.5e0dfc7b.chunk.js.map",
     "static/js/3.86b0f379.chunk.js": "/sortingAnimator/static/js/3.86b0f379.chunk.js",
     "static/js/3.86b0f379.chunk.js.map": "/sortingAnimator/static/js/3.86b0f379.chunk.js.map",
     "index.html": "/sortingAnimator/index.html",
     "static/css/main.fa0b8aae.chunk.css.map": "/sortingAnimator/static/css/main.fa0b8aae.chunk.css.map",
-    "static/js/2.e01b927e.chunk.js.LICENSE.txt": "/sortingAnimator/static/js/2.e01b927e.chunk.js.LICENSE.txt"
+    "static/js/2.5e0dfc7b.chunk.js.LICENSE.txt": "/sortingAnimator/static/js/2.5e0dfc7b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3c28eb94.js",
-    "static/js/2.e01b927e.chunk.js",
+    "static/js/2.5e0dfc7b.chunk.js",
     "static/css/main.fa0b8aae.chunk.css",
-    "static/js/main.fc7c0e38.chunk.js"
+    "static/js/main.e3e4c351.chunk.js"
   ]
 }
